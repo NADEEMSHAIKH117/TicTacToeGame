@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class TicTacToeGame {
 	public static final char EMPTY= ' ';
@@ -31,6 +32,25 @@ public class TicTacToeGame {
 		System.out.print("\n");
 		
 	}
+	}
+	
+	public static int checkFree(char[] ticTacToeBoard, char chosenLetter, String currentPlayer) {
+		Scanner takeInput = new Scanner(System.in);
+		int moveIndex;
+		boolean emptyStatus;
+		do {
+			System.out.println("Enter index to place letter " + chosenLetter + " for " + currentPlayer);
+			moveIndex = takeInput.nextInt();
+			if(ticTacToeBoard[moveIndex] == EMPTY) {
+				emptyStatus = true;
+				System.out.println("Index available");
+			}
+			else {
+				emptyStatus = false;
+				System.out.println("Index not available");
+			}
+		} while(emptyStatus == false);
+		return moveIndex;
 	}
 
 
