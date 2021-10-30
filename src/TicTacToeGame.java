@@ -163,6 +163,28 @@ public class TicTacToeGame {
 		}
 		return cellNoForComputerWin; 
 	}
+	/**
+	 * uc9
+	 * @param ticTacToeBoard
+	 * @param chosenLetter
+	 * @return
+	 */
+	private static int computerPlayToBlock(char[] ticTacToeBoard, char chosenLetter) {
+		char swappedLetter = swapPlayerLetter(chosenLetter);
+		String playerWinPossibility;
+		int cellNoForPlayerWin = 0;
+		char [] ticTacToeBoardCopy = ticTacToeBoard.clone();
+		for(int cellIndex = 1; cellIndex < ticTacToeBoard.length; cellIndex++) {
+			if(ticTacToeBoardCopy[cellIndex] == EMPTY) {
+				ticTacToeBoardCopy[cellIndex] = swappedLetter; 
+				playerWinPossibility = gameManager(ticTacToeBoardCopy, swappedLetter); 
+				if(playerWinPossibility.contains("win")) 
+					cellNoForPlayerWin = cellIndex;
+				ticTacToeBoardCopy[cellIndex] = EMPTY;
+			}
+		}
+		return cellNoForPlayerWin; 
+	}
 	
 	public static void main(String[] args) {
 		
