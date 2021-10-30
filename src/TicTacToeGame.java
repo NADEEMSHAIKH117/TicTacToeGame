@@ -86,7 +86,17 @@ public class TicTacToeGame {
 		ticTacToeBoard[moveIndex] = playerLetter;
 	}
 	
-	
+	/**
+	 * uc6
+	 * @return
+	 */
+	private static String getWhoPlaysFirst() {
+		int randomInt = (int)Math.floor((Math.random()*10)%2);
+		if(randomInt == HEADS)
+			return  PlayerNames.PLAYER.name();
+		else
+			return PlayerNames.COMPUTER.name();
+	}
 	public static void main(String[] args) {
 		
 		
