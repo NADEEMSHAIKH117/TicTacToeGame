@@ -279,13 +279,18 @@ public class TicTacToeGame {
 			System.out.println("It's a TIE!");
 		else
 			System.out.println("The game is WON by " + swapPlayerTurn(currentPlayer));
-	
-	public static void main(String[] args) {
-		
-		
-
 	}
-
+	/**
+	 * uc13
+	 * @param args
+	 */
+	public static void main (String[] args) {
+		Scanner takeInput = new Scanner(System.in);
+		char responseForAnotherGame;
+		do {
+			playGame();
+			System.out.println("Do you want to play again? (Y/N)");
+			responseForAnotherGame = takeInput.next().charAt(0);
+		} while(responseForAnotherGame == 'Y');
+	}	
 }
-
-
