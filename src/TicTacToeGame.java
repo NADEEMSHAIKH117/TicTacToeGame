@@ -97,6 +97,53 @@ public class TicTacToeGame {
 		else
 			return PlayerNames.COMPUTER.name();
 	}
+	
+	/**
+	 * uc7
+	 * @param ticTacToeBoard
+	 * @param chosenLetter
+	 * @param lastPlayer
+	 * @return
+	 */
+	private static String gameManager(char[] ticTacToeBoard, char chosenLetter) {
+		int counter = 0;
+		String gameMessage = "change";
+		if((ticTacToeBoard[1] == chosenLetter && ticTacToeBoard[2] == chosenLetter && ticTacToeBoard[3] == chosenLetter) || 
+				(ticTacToeBoard[4] == chosenLetter && ticTacToeBoard[5] == chosenLetter && ticTacToeBoard[6] == chosenLetter) || 
+				(ticTacToeBoard[7] == chosenLetter && ticTacToeBoard[8] == chosenLetter && ticTacToeBoard[9] == chosenLetter) || 
+				(ticTacToeBoard[1] == chosenLetter && ticTacToeBoard[4] == chosenLetter && ticTacToeBoard[7] == chosenLetter) ||
+				(ticTacToeBoard[2] == chosenLetter && ticTacToeBoard[5] == chosenLetter && ticTacToeBoard[8] == chosenLetter) ||
+				(ticTacToeBoard[3] == chosenLetter && ticTacToeBoard[6] == chosenLetter && ticTacToeBoard[9] == chosenLetter) ||
+				(ticTacToeBoard[1] == chosenLetter && ticTacToeBoard[5] == chosenLetter && ticTacToeBoard[9] == chosenLetter) ||
+				(ticTacToeBoard[3] == chosenLetter && ticTacToeBoard[5] == chosenLetter && ticTacToeBoard[7] == chosenLetter)) 
+			gameMessage = "win";
+		else {
+			for(int cellIndex = 1; cellIndex < ticTacToeBoard.length; cellIndex++) 
+				if(ticTacToeBoard[cellIndex] == EMPTY)
+					counter++;
+			if(counter == 0) 
+				gameMessage = "tie"; 
+		}
+		return gameMessage;
+	}
+
+	private static char swapPlayerLetter(char chosenLetter) {
+		if(chosenLetter == CHARACTER_X)
+			chosenLetter = CHARACTER_O;
+		else
+			chosenLetter = CHARACTER_X;
+		return chosenLetter;
+	}
+
+	private static String swapPlayerTurn(String currentPlayer) {
+		if(currentPlayer.contains(PlayerNames.PLAYER.name()))
+			currentPlayer = PlayerNames.COMPUTER.name();
+		else
+			currentPlayer = PlayerNames.PLAYER.name();
+		return currentPlayer;
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		
