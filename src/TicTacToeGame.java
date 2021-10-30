@@ -203,6 +203,26 @@ public class TicTacToeGame {
 		return freeCornerIndex;
 	}
 	
+
+	/**
+	 * uc11
+	 * @param ticTacToeBoard
+	 * @return
+	 */
+	private static int computerPlayToCentreOrSide(char[] ticTacToeBoard) {
+		int freeCentreOrSideIndex = 0;
+		if(ticTacToeBoard[5] == EMPTY)
+			freeCentreOrSideIndex = 5;
+		else if(ticTacToeBoard[2] == EMPTY)
+			freeCentreOrSideIndex = 2;
+		else if(ticTacToeBoard[4] == EMPTY)
+			freeCentreOrSideIndex = 4;
+		else if(ticTacToeBoard[6] == EMPTY)
+			freeCentreOrSideIndex = 6;
+		else if(ticTacToeBoard[8] == EMPTY)
+			freeCentreOrSideIndex = 8;
+		return freeCentreOrSideIndex;
+	}
 	public static void main(String[] args) {
 		
 		
