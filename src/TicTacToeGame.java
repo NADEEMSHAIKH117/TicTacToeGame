@@ -142,7 +142,27 @@ public class TicTacToeGame {
 			currentPlayer = PlayerNames.PLAYER.name();
 		return currentPlayer;
 	}
-	
+	/**
+	 * uc8
+	 * @param ticTacToeBoard
+	 * @param chosenLetter
+	 * @return
+	 */
+	private static int computerPlayToWin(char[] ticTacToeBoard, char chosenLetter){
+		String computerWinPossibility;
+		int cellNoForComputerWin = 0;
+		char [] ticTacToeBoardCopy = ticTacToeBoard.clone();
+		for(int cellIndex = 1; cellIndex < ticTacToeBoard.length; cellIndex++) {
+			if(ticTacToeBoardCopy[cellIndex] == EMPTY) {
+				ticTacToeBoardCopy[cellIndex] = chosenLetter; 
+				computerWinPossibility = gameManager(ticTacToeBoardCopy, chosenLetter); 
+				if(computerWinPossibility.contains("win")) 
+					cellNoForComputerWin = cellIndex;
+				ticTacToeBoardCopy[cellIndex] = EMPTY;
+			}
+		}
+		return cellNoForComputerWin; 
+	}
 	
 	public static void main(String[] args) {
 		
