@@ -185,6 +185,23 @@ public class TicTacToeGame {
 		}
 		return cellNoForPlayerWin; 
 	}
+	/**
+	 * uc10
+	 * @param ticTacToeBoard
+	 * @return
+	 */
+	private static int computerPlayToCorner(char[] ticTacToeBoard) {
+		int freeCornerIndex = 0;
+		if(ticTacToeBoard[1] == EMPTY)
+			freeCornerIndex = 1;
+		else if(ticTacToeBoard[3] == EMPTY)
+			freeCornerIndex = 3;
+		else if(ticTacToeBoard[7] == EMPTY)
+			freeCornerIndex = 7;
+		else if(ticTacToeBoard[9] == EMPTY)
+			freeCornerIndex = 9;
+		return freeCornerIndex;
+	}
 	
 	public static void main(String[] args) {
 		
